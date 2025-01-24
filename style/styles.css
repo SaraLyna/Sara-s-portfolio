@@ -1,0 +1,938 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+/*---------------------------------------------------------------------*/
+*{
+    margin: 0;
+    padding: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f1f4f8; /* Fond clair, gris pâle */
+    margin: 0;
+    font-family: sans-serif;
+    color: #333; /* Texte sombre mais doux */
+    transition: background-color 0.3s, color 0.3s;
+    overflow-x: hidden;    
+}
+
+header {
+    display: block;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 230px; /* Ajuster la largeur si nécessaire */
+    background: #e6c4f2;
+    color: white;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+main {
+    margin-left: 0; /* Correspond à la largeur du header */
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    overflow-x: hidden;
+    width: 100%; /* Assure que le main occupe le reste de la largeur sans déborder */
+}
+
+
+section {
+    width: 90%;
+    max-width: 1200px;
+    padding: 20px;
+    background-color: #ecd3f2; /* Blanc pur pour les sections */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out; /* Animation fluide */
+}
+
+
+
+/* Section style */
+.section {
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    background-color: #e8eff1; /* Gris clair avec une touche bleue */
+    transition: all 0.3s ease-in-out; /* Animation fluide */
+}
+
+/* Bouton stylé */
+button.toggle-btn {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out; 
+}
+
+
+/* Logo */
+.logo img {
+    width: 200px;
+    height: auto;
+}
+
+/* Nom */
+.name h3 {
+    margin-top: 10px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #660e8c;
+}
+
+/* Icônes sociales */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    color: #6a82fb; /* Bleu doux */
+    font-size: 1.5rem;
+}
+
+
+/* Menu de navigation */
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 40px;
+    z-index: 1001;
+}
+
+.nav-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #6600cc;
+    font-size: 1.2rem;
+    padding: 10px;
+    display: block;
+    transition: background 0.3s;
+    
+}
+
+.nav-links li a:hover {
+    background: #640893;
+    border-radius: 5px;
+}
+
+
+
+/* Masquer le menu sur mobile */
+@media screen and (max-width:  1024px) {
+    .name, .social-icons {
+        display: none;  /* Cacher ces éléments */
+    }
+    .logo{
+        position: absolute;
+        display: block;
+        right:100px;
+        top:10px;
+        width:50px;
+        height: auto;
+    }
+    .toggle-btn {
+        padding: 15px 30px;
+        margin-top: 10px;
+        margin:10px 80px ;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    
+   
+
+
+    /* Cacher le fond du header */
+    header {
+        background: none; /* Enlever le fond du header */
+        box-shadow: none;  /* Cacher l'ombre de la barre de navigation */
+        display: block;
+        padding:10px 20px;
+        width:100%;
+        flex-direction: column;
+        align-items: center;
+        position :relative;
+        height: auto;
+    }
+    main {
+        margin-left: 0; /* Supprime la marge pour les petits écrans */
+        padding-top: 100px;
+    }
+    section {
+        width: 90%; /* Réduire la largeur des sections sur tablette */
+        max-width: 900px;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #4b0082;
+        width: 250px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding-top: 60px;     
+    }
+
+    .nav-links.active {
+        display: block; /* Afficher le menu lorsque activé */
+    }
+
+    .nav-links li a {
+        font-size: 1.5rem;
+        padding: 15px;
+    }    
+    
+}
+
+
+
+/*------------------------Accueil------------------------------------*/
+/* Section Accueil */
+#accueil {
+    padding: 80px 20px;
+    margin-left: 250px;
+    color: #fff;
+    /*z-index: 1;*/
+    box-sizing: border-box;
+    overflow:visible;
+    position: relative;
+    text-align: center;
+    transition: margin-left 0.3s ease;
+}
+
+/* Contact info */
+.contact-info p, .contact-info a {
+    color: #fff;
+    font-size: 1.1rem;
+    margin: 10px 0;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    pointer-events: auto;
+    padding: 10px; /* Zone cliquable plus grande */
+    display: block; /* Facile à cliquer */
+    text-align: center;   
+}
+.full-name{
+    font-size: 4rem;
+    color: #6600cc;
+}
+.job-title{
+    font-size: 1.8rem;
+}
+
+/* Boutons CTA */
+.cta-buttons a {
+    display: inline-block;
+    padding:15px 25px;
+    margin:10px auto;
+    width: auto;
+    margin-top: 20px;
+    overflow: visible; /* Laisse le contenu visible */
+    position: relative; /* Assure la bonne gestion du positionnement */
+    pointer-events: auto; /* Active les clics sur les enfants */
+    opacity: 1; /* Reste visible */
+}
+
+.btn-primary, .btn-secondary {
+    width:80%;
+    position: relative;
+    /*z-index: 1000;*/
+    display: inline-block;
+    visibility: visible;
+    padding: 10px 20px;
+    font-size: 1rem;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 25px;
+    margin: 10px auto;
+    pointer-events: auto;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #1c1463;
+    border: 2px solid #fff;
+}
+
+.btn-primary:hover {
+    background-color: #aa1fe665;
+}
+
+.btn-secondary {
+    background-color: #1c1463;
+    border: 2px solid #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #aa1fe665;
+    
+}
+
+/* Tagline */
+.tagline {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    font-style: italic;
+    color: #d1e7ff;
+}
+
+/* Photo de profil */
+.photo-profil {
+    width: 100%;
+    
+    border-radius: 50%;
+    border: 5px solid #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsivité */
+@media screen and (max-width: 768px) {
+    #accueil {
+        margin-left: 0;
+        padding: 60px 20px;
+    }
+
+    .flex {
+        flex-direction: column;
+    }
+
+    .w60, .w40 {
+        width: 100%;
+        text-align: center;
+    }
+
+    .photo-profil {
+        width: 70%;
+        margin-bottom: 20px;
+    }
+    .cta-buttons a{
+        width:90%;
+        padding:12px;
+        font-size:0.9rem;
+    }
+}
+
+
+/* Section À propos */
+#apropos {
+    padding: 80px 20px; /* Ajout de padding pour un espacement fluide */
+   
+    margin-left: 250px; /* Espace pour le header vertical */
+    transition: margin-left 0.3s ease; /* Transition douce lors de l'ouverture/fermeture du menu */
+    /*z-index: 1;*/ /* Assure que le contenu reste au-dessus */
+    box-sizing: border-box; /* Évite les débordements */
+    overflow:visible ; /* Supprime les débordements horizontaux */
+    position: relative;
+}
+
+/* Conteneur principal */
+.boxed {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #c3afcc; 
+    color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Ombre douce autour de la boîte */
+    position: relative;
+    transition: all 0.3s ease; /* Transition douce pour l'effet de lumière */
+    border: 5px solid #fff;
+}
+
+/* Effet de lumière sous la boîte */
+.boxed:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 6px;
+    /*background: linear-gradient(90deg, rgba(0, 123, 255, 0.7), rgba(255, 255, 255, 0.7));*/
+    border-radius: 10px;
+    transition: width 0.3s ease;
+   /* z-index: 1;*/
+}
+
+.boxed:hover {
+    transform: translateY(-5px); /* Légère élévation au survol */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.boxed.active:after {
+    width: 100%; /* Lumière pleine largeur quand active */
+}
+
+/* Flexbox pour organiser les éléments */
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px; /* Espacement entre les colonnes */
+}
+
+/* Colonne gauche */
+.w50 {
+    flex: 0 1 50%; /* Largeur flexible, max 50% */
+    text-align: left;
+}
+
+/* Titres et texte */
+h2 {
+    font-size: 2.5rem;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #fff;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+h3 {   
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color:#6600cc;
+}
+ul{
+    font-size: 1rem;   
+}
+
+
+
+/* Mise en page mobile */
+@media screen and (max-width: 768px) {
+    #apropos {
+        margin-left: 0; /* Supprime la marge pour le header vertical */
+        padding: 60px 10px; /* Ajuste le padding pour les petits écrans */
+    }
+
+    .flex {
+        flex-direction: column; /* Empile les colonnes verticalement */
+        align-items: center; /* Centre tous les éléments */
+    }
+
+    .w50 {
+        width: 90%; /* Largeur réduite pour les colonnes */
+        text-align: center; /* Recentrage du texte */
+    }
+
+    .quote-box {
+        width: 90%; /* Largeur adaptée */
+        margin: 20px auto; /* Centrage pour mobiles */
+    }
+
+    .download-btn {
+        width: 100%; /* Bouton prend toute la largeur */
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 2rem; /* Taille réduite pour le titre */
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 1rem; /* Texte légèrement plus petit */
+    }
+    
+}
+
+
+/*--------------------------SKILLS-----------------------*/
+/* Section Compétences */
+#competences {
+    padding: 80px 20px; /* Espacement interne */
+    margin-left: 250px; /* Gère l'espace pour un header vertical */
+    box-sizing: border-box; /* Inclut les marges et bordures dans la taille */
+    overflow-x: hidden; /* Empêche les débordements horizontaux */
+    transition: margin-left 0.3s ease; /* Transition douce */
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+/* Boîte des compétences */
+.boxed-skills {
+    max-width: 1280px;
+    margin: 0 auto; /* Centre la boîte horizontalement */
+    padding: 40px;
+    background-color: #c3afcc; 
+    color: #fff; /* Texte blanc */
+    border-radius: 20px; /* Coins arrondis */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Ombre douce */
+    border: 5px solid #fff; /* Bordure blanche */
+    text-align: center; /* Centre le texte */
+    position: relative;
+    animation: slideIn 1s ease-out; /* Apparition avec glissement */
+}
+
+/* Conteneur des compétences */
+.skills-container {
+    display: flex;
+    justify-content: center; /* Centre les compétences horizontalement */
+    gap: 15px; /* Espacement entre les compétences */
+    flex-wrap: nowrap; /* Les compétences restent sur une seule ligne */
+    overflow-x: auto; /* Permet le défilement horizontal sur petits écrans */
+    padding-bottom: 20px; /* Ajout d'espace sous les compétences */
+    animation: fadeIn 1.2s ease-out; /* Apparition avec fondu */
+}
+
+/* Compétence individuelle */
+.skill {
+    flex: 0 0 auto; /* Fixe la taille des compétences */
+    max-width: 120px; /* Largeur maximale */
+    text-align: center;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    background: none;
+    opacity: 0; /* Initialement invisible */
+    animation: fadeIn 0.8s ease-out forwards;
+
+}
+.skill:nth-child(1) {
+    animation-delay: 1.2s; /* Décalage pour effet d'apparition */
+}
+.skill:nth-child(2) {
+    animation-delay: 0.4s;
+}
+.skill:nth-child(3) {
+    animation-delay: 0.6s;
+}
+.skill:nth-child(4) {
+    animation-delay: 0.8s;
+}
+.skill:nth-child(5) {
+    animation-delay: 1s;
+}
+.skill:nth-child(6) {
+    animation-delay: 1.2s;
+}
+.skill:nth-child(7) {
+    animation-delay: 1.4s;
+}
+.skill:nth-child(8) {
+    animation-delay: 1.6s;
+}
+.skill:nth-child(9) {
+    animation-delay: 1.8s;
+}
+.skill:nth-child(10) {
+    animation-delay: 2s;
+}
+.skill:hover {
+    transform: scale(1.1) rotate(-2deg); /* Agrandissement et rotation légère */
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2); /* Lumière douce */
+}
+
+/* Image de la compétence */
+.skill img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    background: #1e1e1e;
+    padding: 5px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+/* Effet au survol sur l'image */
+.skill:hover img {
+    transform: rotate(360deg); /* Rotation complète */
+}    
+
+/* Titre de la compétence */
+.skill h3 {
+    font-size: 1rem;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+.skill:hover h3 {
+    color: #00bcd4; /* Bleu clair */
+}
+
+/* Mise en page mobile */
+@media screen and (max-width: 768px) {
+    #competences {
+        margin-left: 0; /* Supprime la marge gauche pour les petits écrans */
+        padding: 60px 10px; /* Réduction du padding */
+    }
+
+    .boxed-skills {
+        padding: 30px; /* Réduction de l'espace interne */
+    }
+
+    .skills-container {
+        justify-content: start; /* Aligne les compétences au début pour faciliter le défilement */
+    }
+
+    .skill img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .skill h3 {
+        font-size: 0.9rem;
+    }
+}
+
+/* Section Projets */
+#projets {
+    padding: 80px 20px; /* Espacement autour du contenu */
+    margin-left: 250px; /* Espace pour le header vertical */
+    transition: margin-left 0.3s ease; /* Transition douce pour la marge */
+    /*z-index: 1; /* Assure que le contenu reste au-dessus */
+    box-sizing: border-box; /* Empêche les débordements */
+    overflow:visible; 
+    position: relative;
+}
+
+/* Disposition flexible pour les projets */
+.flex {
+    display: flex;
+    justify-content: space-between; /* Aligner le contenu à gauche */
+    gap: 30px; /* Espacement entre chaque projet */
+    max-width: 1280px;
+    width: 100%; /* Prend toute la largeur du conteneur parent */
+    box-sizing: border-box;
+    margin-bottom: 30px; /* Ajoute de l'espace en bas entre chaque projet */
+   
+}
+
+/* Chaque projet occupe toute la largeur de la box */
+.projet-item {
+    background-color: #9e6aab; /* Fond sombre */
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Ombre douce */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    justify-content: space-between; /* Espacement entre texte et image */
+    width: 100%; /* Le projet occupe toute la largeur */
+    box-sizing: border-box;
+}
+
+/* Contenu texte à gauche (60%) */
+.w60.projet-details {
+    flex: 0 1 60%; /* Le texte occupe 60% de la largeur */
+    text-align: left; /* Alignement du texte à gauche */
+}
+
+/* Image à droite (40%) */
+.w40.projet-image {
+    flex: 0 1 40%; /* L'image occupe 40% de la largeur */
+    text-align: center; /* Centrer l'image */
+}
+
+/* Image du projet */
+.projet-image img {
+    width: 100%; /* L'image prend toute la largeur disponible dans son conteneur */
+    max-width: 300px; /* Limite la largeur de l'image */
+    height: auto;
+    border-radius: 10px; /* Arrondir les coins de l'image */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Ombre douce */
+}
+
+/* Titre du projet */
+.projet-item h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color:#6600cc;
+}
+
+/* Description du projet */
+.projet-item p {
+    font-size: 1rem;
+    color: #bbb;
+    margin-bottom: 15px;
+}
+
+/* Bouton du projet */
+.projet-item .btn {
+    padding: 10px 20px;
+    background-color: #003d7a;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.projet-item .btn:hover {
+    background-color: #aa1fe665;
+}
+/* Mise en page pour PC et tablettes de taille moyenne */
+@media screen and (max-width: 1024px) {
+    #contact {
+        margin-left: 0; /* Supprimer la marge gauche */
+        padding: 60px 20px; /* Ajuste le padding sur les écrans moyens */
+    }
+
+    .contact-box {
+        flex-direction: column; /* Empile les sections verticalement */
+        align-items: center;
+        width: 90%;
+        margin-bottom: 20px;
+        padding: 30px;
+        margin-left: 0; /* Evite le décalage de la boîte */
+    }
+
+    .contact-details,
+    .contact-message {
+        width: 100%; /* Utilise toute la largeur pour chaque section */
+        text-align: center;
+        padding: 0;
+        pointer-events: auto; /* Assurez-vous que les champs de saisie peuvent recevoir des clics */
+        visibility: visible; /* Assurez-vous qu'ils sont visibles */
+        opacity: 1;
+        position: relative; /* Pour que z-index fonctionne */
+        /*z-index: 10;*/
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 1rem; /* Ajuste la taille du texte pour plus de lisibilité */
+    }
+
+    .contact-form button {
+        font-size: 1.1rem; /* Taille du bouton ajustée */
+    }
+
+    .social-icons {
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+/* Section Contact */
+#contact {
+    padding: 80px 20px;
+    margin-left: 250px;
+    transition: margin-left 0.3s ease;
+    /*z-index: 1;*/
+    box-sizing: border-box;
+    overflow:visible;
+    display: flex;
+    justify-content: center;
+}
+
+/* Conteneur principal */
+.contact-box {
+    background: #c3afcc;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    max-width: 1280px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between; /* Répartition 50/50 */
+}
+
+/* Section gauche : Message */
+.contact-message {
+    flex: 1 1 50%; /* Prend 50% de la largeur */
+    text-align: left;
+    padding-right: 20px;
+}
+
+/* Section droite : Formulaire */
+.contact-details {
+    flex: 1 1 50%; /* Prend 50% de la largeur */
+    text-align: left;
+    padding-left: 20px;
+}
+
+/* Champ du formulaire */
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: #c3afcc;
+    color: #fff;
+    box-sizing: border-box;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.7);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+/* Effet focus pour les champs */
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    transform: scale(1.02);
+    box-shadow: 0 0 8px #007bff;
+}
+
+/* Bouton d'envoi */
+.contact-form button {
+    padding: 10px 20px;
+    background: #c3afcc;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.5);
+    /*z-index: 10;*/
+}
+
+.contact-form button:hover {
+    transform: translateY(-3px);
+    background: #c3afcc;
+}
+
+/* Liens vers les réseaux sociaux */
+.social-icons {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    position: relative;
+}
+
+.social-icons a {
+    color: #6600cc;
+    font-size: 2rem;
+    transition: transform 0.3s ease, color 0.3s ease; 
+}
+
+.social-icons a:hover {
+    color: #620bdc;
+    transform: scale(1.2);
+}
+
+/* Mise en page mobile */
+@media screen and (max-width: 768px) {
+    #contact {
+        margin-left: 0;
+        padding: 60px 10px;
+    }
+
+    .contact-box {
+        flex-direction: column; /* Empile les sections verticalement */
+        align-items: center;
+        width: 90%;
+        margin-bottom: 20px;
+        padding: 30px;
+    }
+
+    .contact-details,
+    .contact-message {
+        width: 100%;
+        text-align: center;
+        padding: 0;
+    }
+
+    .social-icons {
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+/* Footer global */
+footer {
+    background-color: #c3afcc;
+    color: #fff;
+    padding: 20px 60px;
+    font-size: 0.9rem;
+    text-align: center; /* Centre le texte dans le footer */
+   
+    bottom: 0;          /* Place le footer au bas */
+    width: 100%;        /* Prend toute la largeur de la page */
+    left: 0;            /* Assure qu'il s'étend sur toute la largeur */
+    /*z-index: 999;       /* Assure que le footer soit au-dessus des autres éléments */
+    border: 5px solid #fff;
+    overflow: hidden;
+}
+
+/* Style pour les informations légales */
+.legal-info p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
+.legal-info a {
+    color: #750ae7;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.legal-info a:hover {
+    color: #3f3398;
+}
+
+/* Styles Responsifs */
+@media (max-width: 768px) {
+    footer {
+        font-size: 0.8rem;  /* Réduit la taille du texte sur petits écrans */
+        padding: 15px 0;    /* Réduit le padding pour les petits écrans */
+    }
+
+    .legal-info p {
+        margin: 5px 0;
+    }
+
+  
+}
