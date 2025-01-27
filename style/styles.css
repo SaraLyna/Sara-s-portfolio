@@ -627,7 +627,9 @@ ul{
         font-size: 0.9rem;
     }
 }
-
+#experiences {
+    overflow: hidden;  /* Pour éviter tout débordement */
+}
 /* Section Projets */
 #projets {
     padding: 80px 20px; /* Espacement autour du contenu */
@@ -667,13 +669,13 @@ ul{
 /* Contenu texte à gauche (60%) */
 .w60.projet-details {
     flex: 0 1 60%; /* Le texte occupe 60% de la largeur */
-    text-align: left; /* Alignement du texte à gauche */
+    /*text-align: left; *//* Alignement du texte à gauche */
 }
 
 /* Image à droite (40%) */
 .w40.projet-image {
     flex: 0 1 40%; /* L'image occupe 40% de la largeur */
-    text-align: center; /* Centrer l'image */
+    /*text-align: center; *//* Centrer l'image */
 }
 
 /* Image du projet */
