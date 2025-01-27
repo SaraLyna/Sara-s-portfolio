@@ -3,7 +3,7 @@ const navLinks = document.getElementById('nav-links');
 navLinks.classList.toggle('active');
 
 // Fonction pour afficher une alerte avec les informations du formulaire
-function showAlert(event) {
+/*function showAlert(event) {
     event.preventDefault();  // Empêche l'envoi du formulaire pour éviter de recharger la page
 
     // Récupérer les valeurs des champs du formulaire
@@ -16,7 +16,7 @@ function showAlert(event) {
     
     // Si tu veux envoyer le formulaire après l'alerte, décommente la ligne suivante:
     // document.getElementById('contactForm').submit();
-}
+}*/
 
 // Définition de la classe Client
 class Client {
@@ -59,30 +59,8 @@ document.getElementById("envoyer").addEventListener("click", (event) => {
     // Appel de la méthode presentation() pour afficher les informations
     client.presentation();
 
-    // Envoi des données via AJAX
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'send_email.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-    // Créer une chaîne de données à envoyer à PHP
-    const data = `name=${encodeURIComponent(nom)}&email=${encodeURIComponent(email)}&message=${encodeURIComponent(message)}`;
-
-    // Lorsque la requête est terminée, gérer la réponse (par exemple, afficher un message de succès)
-    xhr.onload = function() {
-        if (xhr.status === 200) {
-            // Si l'envoi a réussi, afficher un message de confirmation
-            alert("Message envoyé avec succès !");
-        } else {
-            // Si une erreur se produit, afficher un message d'erreur
-            alert("Une erreur est survenue lors de l'envoi du message.");
-        }
-    };
-
-    // Envoi des données
-    xhr.send(data);
-
     // Si tu veux soumettre le formulaire après, appelle ici la méthode pour soumettre le formulaire en arrière-plan ou de manière plus propre avec AJAX
-    // document.getElementById('contactForm').submit();
+    document.getElementById('contactForm').submit();
 });
 
 // Fonction pour basculer entre le mode sombre et clair
