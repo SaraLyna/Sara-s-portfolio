@@ -62,7 +62,7 @@ section {
     padding: 20px;
     margin: 10px;
     border-radius: 8px;
-    background-color: #e8eff1; /* Gris clair avec une touche bleue */
+    background-color: #e8eff1; 
     transition: all 0.3s ease-in-out; /* Animation fluide */
 }
 
@@ -100,7 +100,7 @@ button.toggle-btn {
 }
 
 .social-icons a {
-    color: #6a82fb; /* Bleu doux */
+    color: #6a82fb; 
     font-size: 1.5rem;
 }
 
@@ -215,7 +215,6 @@ button.toggle-btn {
     padding: 80px 20px;
     margin-left: 250px;
     color: #fff;
-    /*z-index: 1;*/
     box-sizing: border-box;
     overflow:visible;
     position: relative;
@@ -232,8 +231,8 @@ button.toggle-btn {
     display: block;
     width: 100%;
     pointer-events: auto;
-    padding: 10px; /* Zone cliquable plus grande */
-    display: block; /* Facile à cliquer */
+    padding: 10px; 
+    display: block;
     text-align: center;   
 }
 .full-name{
@@ -253,7 +252,7 @@ button.toggle-btn {
     margin-top: 20px;
     overflow: visible; /* Laisse le contenu visible */
     position: relative; /* Assure la bonne gestion du positionnement */
-    pointer-events: auto; /* Active les clics sur les enfants */
+    pointer-events: auto; 
     opacity: 1; /* Reste visible */
 }
 
@@ -474,9 +473,9 @@ ul{
 /* Section Compétences */
 #competences {
     padding: 80px 20px; /* Espacement interne */
-    margin-left: 250px; /* Gère l'espace pour un header vertical */
+    margin-left: 300px; /* Gère l'espace pour un header vertical */
     box-sizing: border-box; /* Inclut les marges et bordures dans la taille */
-    overflow-x: hidden; /* Empêche les débordements horizontaux */
+    /*overflow-x: hidden;*/ /* Empêche les débordements horizontaux */
     transition: margin-left 0.3s ease; /* Transition douce */
 }
 @keyframes fadeIn {
@@ -634,7 +633,6 @@ ul{
     padding: 80px 20px; /* Espacement autour du contenu */
     margin-left: 250px; /* Espace pour le header vertical */
     transition: margin-left 0.3s ease; /* Transition douce pour la marge */
-    /*z-index: 1; /* Assure que le contenu reste au-dessus */
     box-sizing: border-box; /* Empêche les débordements */
     overflow:visible; 
     position: relative;
