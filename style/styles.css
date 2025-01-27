@@ -628,7 +628,10 @@ ul{
     }
 }
 #experiences {
-    overflow: hidden;  /* Pour éviter tout débordement */
+    max-width: 1200px;   /* Limite la largeur de la section */
+    margin: 0 auto;      /* Centre la section horizontalement */
+    padding: 20px;       /* Ajoute un peu de padding à l'intérieur */
+    overflow: hidden;    /* Évite le débordement si nécessaire */
 }
 /* Section Projets */
 #projets {
